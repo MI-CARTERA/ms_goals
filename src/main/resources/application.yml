@@ -8,11 +8,6 @@ spring:
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:default}
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,prometheus
   datasource:
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/ms_goals}
     username: ${SPRING_DATASOURCE_USERNAME}
@@ -22,6 +17,7 @@ management:
     hibernate:
       ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
     open-in-view: false
+
   rabbitmq:
     host: ${SPRING_RABBITMQ_HOST:localhost}
     port: ${SPRING_RABBITMQ_PORT:5672}
@@ -32,3 +28,9 @@ management:
     redis:
       host: ${SPRING_DATA_REDIS_HOST}
       port: ${SPRING_DATA_REDIS_PORT}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
